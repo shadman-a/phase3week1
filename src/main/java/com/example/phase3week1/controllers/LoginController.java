@@ -18,7 +18,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public String showLoginPage(ModelMap model) {
-     return "signup";
+     return "login";
  }
 
     @PostMapping("/login")
@@ -30,7 +30,7 @@ public class LoginController {
          }
      }
      model.addAttribute("error", "Wrong Password");
-     return "signup";
+     return "login";
  }
 
 }

@@ -17,9 +17,26 @@ public class LoginService {
 
         for (User userEntity : allUsers) {
             if (userEntity.getName().equals(user.getName()) && userEntity.getPassword().equals(user.getPassword())) {
-                return true;
+                if (duplicateUser(user)) {
+                    userRepository.save(user);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return true;
+    }
+
+    private boolean duplicateUser(User user) {
+        Iterable<User> allUsers = userRepository.findAll();
+
+        for (User userEntity : allUsers) {
+            if(userEntity.getName().equals(user.getName())) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
