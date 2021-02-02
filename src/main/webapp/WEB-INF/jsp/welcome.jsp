@@ -13,7 +13,7 @@
     <p1>Password: ${user.password}</p1>
 </div>
 <h3>Update Details</h3>
-<form method="patch">
+<form method="post">
     Username : <input type="text" name="name">
     Password : <input type="password" name="password">
     <input type="submit" />
